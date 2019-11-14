@@ -2,8 +2,6 @@ package com.tjoeun.a20191114_01_okhttp.utils
 
 import android.content.Context
 import android.util.Log
-import android.widget.Toast
-import com.tjoeun.a20191114_01_okhttp.LoginActivity
 import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
@@ -45,6 +43,24 @@ class ServerUtil {
                     Log.d("서버",body)
 
                     var json = JSONObject(body)
+                    handler?.onResponse(json)
+                }
+
+            })
+        }
+
+        fun putRequestSignUp(context: Context, loginId: String, loginPassword: String, name: String, phoneNum: String, handler: JsonResponseHandler?){
+            var client = OkHttpClient()
+            var url = "${BASE_URL}/auth"
+            var formBody = FormBody.Builder().add("login_id",loginId).add("password",loginPassword).add("name",name).add("phone",phoneNum).build()
+            var request = Request.Builder().url(url).post(formBody).build()
+            client.newCall(request).enqueue(object : Callback{
+                override fun onFailure(call: Call, e: IOException) {
+                    Log.d("로그","서버 통신 에러")
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    var json = JSONObject(response.body.toString())
                     handler?.onResponse(json)
                 }
 
