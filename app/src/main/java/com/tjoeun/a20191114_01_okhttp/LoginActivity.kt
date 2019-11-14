@@ -2,8 +2,9 @@ package com.tjoeun.a20191114_01_okhttp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.tjoeun.a20191114_01_okhttp.utils.ServerUtil
 
-class MainActivity : BaseActivity() {
+class LoginActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -13,8 +14,10 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
     }
 
     override fun setValues() {
+        ServerUtil.postRequestLogin(mContext, "cho881020","qlalfqjsgh!",null)
     }
 }
