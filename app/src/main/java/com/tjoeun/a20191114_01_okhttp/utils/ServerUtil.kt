@@ -3,6 +3,7 @@ package com.tjoeun.a20191114_01_okhttp.utils
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
+import com.tjoeun.a20191114_01_okhttp.LoginActivity
 import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
@@ -37,12 +38,14 @@ class ServerUtil {
             client.newCall(request).enqueue(object : Callback{
                 override fun onFailure(call: Call, e: IOException) {
                     Log.e("서버통신에러",e.localizedMessage)
-
                 }
 
                 override fun onResponse(call: Call, response: Response) {
                     var body = response.body!!.string()
                     Log.d("서버",body)
+
+                    var json = JSONObject(body)
+                    handler?.onResponse(json)
                 }
 
             })
