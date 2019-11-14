@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LoginActivity"
-    android:padding="10dp">
+    tools:context=".SignUpActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -14,7 +13,7 @@
         android:text="아이디"/>
 
     <EditText
-        android:id="@+id/loginEdtID"
+        android:id="@+id/signUpEdtID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
@@ -26,20 +25,38 @@
         android:text="비밀번호"/>
 
     <EditText
-        android:id="@+id/loginEdtPassword"
+        android:id="@+id/signUpEdtPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:hint="비밀번호 입력"/>
 
-    <Button
-        android:id="@+id/loginBtnLogin"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="로그인"/>
+        android:text="이름"/>
+
+    <EditText
+        android:id="@+id/signUpEdtName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="이름 입력"
+        android:singleLine="true"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="폰 번호"/>
+
+    <EditText
+        android:id="@+id/signUpEdtPhoneNum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:hint="폰 번호 입력"/>
 
     <Button
-        android:id="@+id/loginBtnSignUp"
+        android:id="@+id/signUpBtnSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="회원가입"/>
