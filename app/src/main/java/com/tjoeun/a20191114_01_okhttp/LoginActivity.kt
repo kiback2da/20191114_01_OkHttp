@@ -31,7 +31,13 @@ class LoginActivity : BaseActivity() {
                         if(code == 400){
                             Toast.makeText(mContext,message,Toast.LENGTH_SHORT).show()
                         }else if(code == 200){
-                            Toast.makeText(mContext,"로그인 성공",Toast.LENGTH_SHORT).show()
+                            val dataObject = json.getJSONObject("data")
+                            val userObject = dataObject.getJSONObject("user")
+
+                            var loginId = userObject.getString("login_id")
+                            var name = userObject.getString("name")
+
+                            Toast.makeText(mContext,"${loginId} : ${name}님 환영합니다.",Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
